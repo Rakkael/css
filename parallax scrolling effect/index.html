@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Parallax Scrolling Effect</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">logo</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="/assets/stars.png" id="stars">
+        <img src="/assets/moon.png" id="moon">
+        <img src="/assets/mountains_behind.png" id="mountains_behind">
+        <!-- <h2 id="text">前 端 美 学</h2> -->
+        <img src="/assets/mountains_front.png" id="mountains_front">
+        <a href="#sec" id="btn">Explore</a>
+    </section>
+    <div class="sec" id="sec">
+        <h2>Parallax Scrolling Effect</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit adipisci quos possimus nostrum asperiores
+            quisquam. Deserunt quo aperiam magni, et rem adipisci ex incidunt ad voluptates porro, unde ducimus
+            minima.<br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit adipisci quos possimus
+            nostrum asperiores
+            quisquam. Deserunt quo aperiam magni, et rem adipisci ex incidunt ad voluptates porro, unde ducimus
+            minima.<br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit adipisci quos possimus
+            nostrum asperiores
+            quisquam. Deserunt quo aperiam magni, et rem adipisci ex incidunt ad voluptates porro, unde ducimus
+            minima.<br><br>
+        </p>
+    </div>
+</body>
+<script>
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let text = document.getElementById('text');
+    let mountains_front = document.getElementById('mountains_front');
+    let btn = document.getElementById('btn');
+
+    /*
+    window.addEventListener('scroll',function(){
+        let value = window.scrollY;
+        stars.style.left = value*0.25 + 'px'; // 性能太差
+        moon.style.top = value*1.05 + 'px';
+        mountains_behind.style.top = value*0.5 + 'px';
+        text.style.marginRight = value*4 + 'px';
+        text.style.marginTop = value*1.5 + 'px';
+        btn.style.marginTop = value*1.5 + 'px';
+        mountains_front.style.top = value*0 + 'px';
+    })
+    */
+    window.addEventListener('scroll', function () {
+        let value = window.scrollY;
+        stars.style.transform = `translateX(${value * 0.25}px)`;
+        moon.style.transform = `translateY(${value * 2.3}px)`;
+        mountains_behind.style.transform = `translateY(${value * 0.75}px)`;
+        // text.style.transform = `translate(${value * -2 + 395}px)`;
+        btn.style.transform = `translateY(${value * 1.5 + 100}px)`;
+        mountains_front.style.top = `translateY(${value}px)`;
+    })
+</script>
+</html>

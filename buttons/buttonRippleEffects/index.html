@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>buttonRippleEffects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#">Button</a>
+    <a href="#">Button</a>
+</body>
+<script>
+    var buttons = document.querySelectorAll('a');
+    buttons.forEach(btn => {
+        btn.addEventListener('click',function(e){// e == pointerEvent
+            
+            let x = e.clientX - e.target.offsetLeft;
+            // e.clientX 点击事件相对于 body 的横坐标
+            // e.target.offsetLeft 点击事件所触发目标相对于body的左偏移量
+            let y = e.clientY - e.target.offsetTop;
+            // 上下方向同上
+            let ripples = document.createElement('span');
+            ripples.style.left = x + 'px';
+            ripples.style.top = y + 'px';
+            this.appendChild(ripples);
+            setTimeout(()=>{
+                ripples.remove()
+            },1000)
+        })
+    })
+</script>
+</html>
